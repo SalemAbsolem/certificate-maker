@@ -3,7 +3,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - master  # Автосборка при пуше в ветку master
+      - master  # Указываем ветку master
 
 jobs:
   build-and-deploy:
@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          ref: master  # Указываем ветку master
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -30,6 +32,9 @@ jobs:
             echo "Error: dist folder not found!"
             exit 1
           fi
+
+      - name: List files in dist
+        run: ls -R dist
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

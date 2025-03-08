@@ -3,7 +3,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - master  # Автосборка при пуше в ветку master
+      - main  # Автосборка при пуше в ветку main
 
 jobs:
   build-and-deploy:
@@ -24,8 +24,15 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Check if dist exists
+        run: |
+          if [ ! -d "dist" ]; then
+            echo "Error: dist folder not found!"
+            exit 1
+          fi
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # Используем встроенный токен
           publish_dir: ./dist  # Папка с собранными файлами

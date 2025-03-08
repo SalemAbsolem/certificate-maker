@@ -9,14 +9,14 @@ import webp from 'imagemin-webp';
 const sass = gulpSass(dartSass);
 
 // Компиляция SCSS
-function compileSass() {
+export function compileSass() {
   return gulp.src('src/scss/**/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('dist/css'));
 }
 
 // Оптимизация изображений
-function optimizeImages() {
+export function optimizeImages() {
   return gulp.src('src/icons/*.{png,jpg,jpeg}')
     .pipe(
       imagemin([
@@ -29,9 +29,10 @@ function optimizeImages() {
 }
 
 // Слежение за изменениями
-function watch() {
+export function watch() {
   gulp.watch('src/scss/**/*.scss', compileSass);
   gulp.watch('src/icons/*.{png,jpg,jpeg}', optimizeImages);
 }
 
+// Задача по умолчанию
 export default gulp.series(compileSass, optimizeImages, watch);

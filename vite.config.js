@@ -3,7 +3,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 import path from 'path';
 
 export default defineConfig({
-  base: './', // Относительные пути
+  base: './', // Относительные пути для GitHub Pages
   root: 'src',
   server: {
     port: 3000,
@@ -11,8 +11,8 @@ export default defineConfig({
     host: true, // Доступ по локальной сети
   },
   build: {
-    outDir: '../dist',
-    emptyOutDir: true,
+    outDir: '../dist', // Папка для сборки
+    emptyOutDir: true, // Очистка папки перед сборкой
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, 'src/index.html'),

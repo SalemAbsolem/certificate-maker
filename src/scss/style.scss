@@ -1,0 +1,75 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    text-align: center;
+  }
+
+  form {
+    margin-bottom: 20px;
+  }
+
+  canvas {
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    max-width: 100%;
+    touch-action: none;
+  }
+
+  button, select {
+    padding: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+  label {
+    display: block;
+    margin-top: 10px;
+  }
+
+  .text-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+
+    label {
+      margin: 0;
+    }
+  }
+
+  .position-controls {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    margin-top: 10px;
+
+    button {
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  }
+
+  #qualitySlider {
+    margin: 20px 0;
+    width: 100%;
+  }
+
+  #qualityValue {
+    margin-left: 10px;
+    font-weight: bold;
+  }
+}

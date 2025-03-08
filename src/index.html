@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Генератор сертификатов">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon-192x192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.css">
+  <title>Генератор сертификатов</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Генератор сертификатов</h1>
+    <form id="uploadForm" enctype="multipart/form-data">
+      <label for="imageUpload">Загрузите шаблон изображения:</label>
+      <input type="file" id="imageUpload" name="image" accept="image/*" required>
+      <button type="submit">Загрузить</button>
+    </form>
+
+    <div id="editor" style="display: none;">
+      <h2>Редактор</h2>
+      <canvas id="canvas"></canvas>
+      <div>
+        <label for="textInput">Введите текст:</label>
+        <input type="text" id="textInput" placeholder="Введите текст">
+        <button id="addTextButton">Добавить текст</button>
+        <button id="deleteTextButton">Удалить текст</button>
+
+        <!-- Цвет и размер текста -->
+        <div class="text-controls">
+          <label for="textColor">Цвет текста:</label>
+          <input type="color" id="textColor" value="#000000">
+          <label for="textSize">Размер текста:</label>
+          <input type="number" id="textSize" min="10" max="100" value="30">
+        </div>
+
+        <!-- Позиционирование текста -->
+        <div class="position-controls">
+          <button id="position-top-left">↖️</button>
+          <button id="position-top-center">⬆️</button>
+          <button id="position-top-right">↗️</button>
+          <button id="position-center-left">⬅️</button>
+          <button id="position-center">⏺️</button>
+          <button id="position-center-right">➡️</button>
+          <button id="position-bottom-left">↙️</button>
+          <button id="position-bottom-center">⬇️</button>
+          <button id="position-bottom-right">↘️</button>
+        </div>
+
+        <!-- Выбор формата и качества -->
+        <label for="formatSelect">Формат изображения:</label>
+        <select id="formatSelect">
+          <option value="png">PNG</option>
+          <option value="jpeg">JPEG</option>
+          <option value="webp">WebP</option>
+        </select>
+
+        <label for="qualitySlider">Качество (0-100):</label>
+        <div id="qualitySlider"></div>
+        <span id="qualityValue">80</span>%
+
+        <button id="saveImageButton">Сохранить изображение</button>
+        <p>Нажмите и удерживайте текст, чтобы переместить его.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.js"></script>
+  <script src="js/script.js" type="module"></script>
+</body>
+</html>

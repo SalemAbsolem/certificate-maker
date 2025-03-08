@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Генератор сертификатов">
+  <link rel="manifest" href="data:application/json;base64,ewogICJzaG9ydF9uYW1lIjogItCh0LXRgNGC0LjRhNC40LrQsNGC0YsiLAogICJuYW1lIjogItCT0LXQvdC10YDQsNGC0L7RgCDRgdC10YDRgtC40YTQuNC60LDRgtC+0LIiLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICIvaWNvbnMvaWNvbi0xOTJ4MTkyLnBuZyIsCiAgICAgICJ0eXBlIjogImltYWdlL3BuZyIsCiAgICAgICJzaXplcyI6ICIxOTJ4MTkyIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICIvaWNvbnMvaWNvbi01MTJ4NTEyLnBuZyIsCiAgICAgICJ0eXBlIjogImltYWdlL3BuZyIsCiAgICAgICJzaXplcyI6ICI1MTJ4NTEyIgogICAgfQogIF0sCiAgInN0YXJ0X3VybCI6ICIvIiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjZmZmZmZmIiwKICAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwKICAic2NvcGUiOiAiLyIsCiAgInRoZW1lX2NvbG9yIjogIiNmZmZmZmYiCn0K">
+  <link rel="icon" href="data:image/png;base64,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">
+  <link rel="apple-touch-icon" href="data:image/png;base64,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">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.css">
+  <title>Генератор сертификатов</title>
+  <script type="module" crossorigin src="./assets/main-d95e030d.js"></script>
+  <link rel="stylesheet" href="./assets/index-a7017442.css">
+<link rel="manifest" href="./manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="./registerSW.js"></script></head>
+<body>
+  <div class="container">
+    <h1>Генератор сертификатов</h1>
+    <form id="uploadForm" enctype="multipart/form-data">
+      <label for="imageUpload">Загрузите шаблон изображения:</label>
+      <input type="file" id="imageUpload" name="image" accept="image/*" required>
+      <button type="submit">Загрузить</button>
+    </form>
+
+    <div id="editor" style="display: none;">
+      <h2>Редактор</h2>
+      <canvas id="canvas"></canvas>
+      <div>
+        <label for="textInput">Введите текст:</label>
+        <input type="text" id="textInput" placeholder="Введите текст">
+        <button id="addTextButton">Добавить текст</button>
+        <button id="deleteTextButton">Удалить текст</button>
+
+        <!-- Цвет и размер текста -->
+        <div class="text-controls">
+          <label for="textColor">Цвет текста:</label>
+          <input type="color" id="textColor" value="#000000">
+          <label for="textSize">Размер текста:</label>
+          <input type="number" id="textSize" min="10" max="100" value="30">
+        </div>
+
+        <!-- Позиционирование текста -->
+        <div class="position-controls">
+          <button id="position-top-left">↖️</button>
+          <button id="position-top-center">⬆️</button>
+          <button id="position-top-right">↗️</button>
+          <button id="position-center-left">⬅️</button>
+          <button id="position-center">⏺️</button>
+          <button id="position-center-right">➡️</button>
+          <button id="position-bottom-left">↙️</button>
+          <button id="position-bottom-center">⬇️</button>
+          <button id="position-bottom-right">↘️</button>
+        </div>
+
+        <!-- Выбор формата и качества -->
+        <label for="formatSelect">Формат изображения:</label>
+        <select id="formatSelect">
+          <option value="png">PNG</option>
+          <option value="jpeg">JPEG</option>
+          <option value="webp">WebP</option>
+        </select>
+
+        <label for="qualitySlider">Качество (0-100):</label>
+        <div id="qualitySlider"></div>
+        <span id="qualityValue">80</span>%
+
+        <button id="saveImageButton">Сохранить изображение</button>
+        <p>Нажмите и удерживайте текст, чтобы переместить его.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.js"></script>
+  
+</body>
+</html>

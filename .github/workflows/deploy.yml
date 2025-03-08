@@ -24,9 +24,7 @@ jobs:
         run: npm install
 
       - name: Build project
-        run: |
-          npm run build
-          ls -R dist  # Выводим содержимое папки dist для отладки
+        run: npm run build
 
       - name: Check if dist exists
         run: |
@@ -35,8 +33,12 @@ jobs:
             exit 1
           fi
 
+      - name: List files in dist
+        run: ls -R dist
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}  # Используем встроенный токен
+          github_token: ${{ secrets.GH_PAGES_TOKEN }}  # Используем ваш токен
           publish_dir: ./dist  # Папка с собранными файлами
+          force_orphan: true  # Очистка ветки gh-pages перед деплоем

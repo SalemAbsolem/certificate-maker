@@ -1,9 +1,12 @@
-const gulp = require('gulp');
-const sass = require('gulp-sass')(require('sass'));
-const imagemin = require('gulp-imagemin');
-const pngquant = require('imagemin-pngquant');
-const mozjpeg = require('imagemin-mozjpeg');
-const webp = require('imagemin-webp');
+import gulp from 'gulp';
+import dartSass from 'sass';
+import gulpSass from 'gulp-sass';
+import imagemin from 'gulp-imagemin';
+import pngquant from 'imagemin-pngquant';
+import mozjpeg from 'imagemin-mozjpeg';
+import webp from 'imagemin-webp';
+
+const sass = gulpSass(dartSass);
 
 // Компиляция SCSS
 function compileSass() {
@@ -31,4 +34,4 @@ function watch() {
   gulp.watch('src/icons/*.{png,jpg,jpeg}', optimizeImages);
 }
 
-exports.default = gulp.series(compileSass, optimizeImages, watch);
+export default gulp.series(compileSass, optimizeImages, watch);

@@ -1,10 +1,11 @@
 {
   "name": "certificate-generator",
+  "type": "module",
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build && gulp compileSass && gulp optimizeImages",
-    "prebuild": "rm -rf dist",  
+    "prebuild": "rm -rf dist",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
     "lint:js": "eslint src/js/**/*.js",
     "lint:css": "stylelint src/scss/**/*.scss",

@@ -24,7 +24,9 @@ jobs:
         run: npm install
 
       - name: Build project
-        run: npm run build
+        run: |
+          npm run build
+          ls -R dist  # Выводим содержимое папки dist для отладки
 
       - name: Check if dist exists
         run: |
@@ -32,9 +34,6 @@ jobs:
             echo "Error: dist folder not found!"
             exit 1
           fi
-
-      - name: List files in dist
-        run: ls -R dist
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
